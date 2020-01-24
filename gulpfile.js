@@ -1,71 +1,71 @@
-const {series, watch, src, dest, parallel} = require('gulp');
+const { series, watch, src, dest, parallel } = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
-var livereload = require('gulp-livereload');
-var postcss = require('gulp-postcss');
-var zip = require('gulp-zip');
-var uglify = require('gulp-uglify');
-var beeper = require('beeper');
+const livereload = require('gulp-livereload');
+const postcss = require('gulp-postcss');
+const zip = require('gulp-zip');
+const uglify = require('gulp-uglify');
+const beeper = require('beeper');
 
 // postcss plugins
-var autoprefixer = require('autoprefixer');
-var colorFunction = require('postcss-color-function');
-var cssnano = require('cssnano');
-var customProperties = require('postcss-custom-properties');
-var easyimport = require('postcss-easy-import');
+const autoprefixer = require('autoprefixer');
+const colorFunction = require('postcss-color-function');
+const cssnano = require('cssnano');
+const customProperties = require('postcss-custom-properties');
+const easyimport = require('postcss-easy-import');
 
-function serve(done) {
+function serve(done){
     livereload.listen();
     done();
 }
 
 const handleError = (done) => {
-    return function (err) {
-        if (err) {
+    return function (err){
+        if(err){
             beeper();
         }
         return done(err);
     };
 };
 
-function hbs(done) {
+function hbs(done){
     pump([
         src(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs']),
         livereload()
     ], handleError(done));
 }
 
-function css(done) {
-    var processors = [
+function css(done){
+    const processors = [
         easyimport,
-        customProperties({preserve: false}),
+        customProperties({ preserve: false }),
         colorFunction(),
         autoprefixer(),
         cssnano()
     ];
 
     pump([
-        src('assets/css/*.css', {sourcemaps: true}),
+        src('assets/css/*.css', { sourcemaps: true }),
         postcss(processors),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
 
-function js(done) {
+function js(done){
     pump([
-        src('assets/js/*.js', {sourcemaps: true}),
+        src('assets/js/*.js', { sourcemaps: true }),
         uglify(),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
 
-function zipper(done) {
-    var targetDir = 'dist/';
-    var themeName = require('./package.json').name;
-    var filename = themeName + '.zip';
+function zipper(done){
+    const targetDir = 'dist/';
+    const themeName = require('./package.json').name;
+    const filename = themeName + '.zip';
 
     pump([
         src([
