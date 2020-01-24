@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand gh-head-brand" href="{{@site.url}}">
+        {{#if @site.logo}}
+            <img src="{{@site.logo}}" alt="{{@site.title}}" />
+        {{else}}
+            {{@site.title}}
+        {{/if}}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        {{#each @site.navigation}}
+        <li class="nav-item {{~#if current}} active{{/if}}">
+            <a class="nav-link" href="{{this.url}}">{{this.label}}</a>
+        </li>
+        {{/each}}
+    </div>
+</nav>
