@@ -1,7 +1,7 @@
 {
     "name": "moff",
-    "description": "A custom theme for ghost",
-    "demo": "https://starter.ghost.io",
+    "description": "A simple and extentable starter/template ghost theme",
+    "demo": "https://markmoffat.com",
     "version": "1.0.0",
     "engines": {
         "ghost": ">=3.0.0",
@@ -33,16 +33,18 @@
         ]
     },
     "keywords": [
+        "starter",
+        "template",
+        "boilerplate",
         "ghost",
         "theme",
         "ghost-theme"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Starter.git"
+        "url": "https://github.com/mrvautin/moff.git"
     },
-    "bugs": "https://github.com/TryGhost/Starter/issues",
-    "contributors": "https://github.com/TryGhost/Starter/graphs/contributors",
+    "bugs": "https://github.com/mrvautin/moff/issues",
     "devDependencies": {
         "autoprefixer": "9.7.3",
         "cssnano": "4.1.10",
