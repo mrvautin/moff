@@ -38,8 +38,16 @@ html {
 }
 
 .navbar-brand {
-    font-size: 30px;
-    padding-right: 50px;
+    font-size: 4.6rem;
+    letter-spacing: -.5px;
+    width: 150px;
+    font-weight: 700;
+    color: #454545 !important;
+    font-family: var(--font-sans-serif);
+}
+
+.page-title {
+    font-size: 8rem;
 }
 
 .navbar .nav-item {
@@ -72,9 +80,9 @@ html {
 /* ---------------------------------------------------------- */
 
 .gh-index-head {
-    padding: 8vmin 0 4vmin;
+    padding: 6vmin 0 4vmin;
     text-align: center;
-    margin-bottom: 10rem;
+    margin-bottom: 6rem;
 }
 
 .gh-card-link {
@@ -90,6 +98,27 @@ html {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+    .navbar-brand {
+        width: 100px;
+        margin-left: 0px;
+        font-size: 3rem;
+    }
+
+    .navbar-brand div {
+        margin-left: 0px !important;
+    }
+
+    .page-title {
+        font-size: 4rem;
+    }
+
+    .gh-index-head {
+        padding: 4vmin 0 4vmin;
+        margin-bottom: 4rem;
+    }
 }
 
 /* Page
