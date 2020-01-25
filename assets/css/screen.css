@@ -59,7 +59,7 @@ html {
 }
 
 .gh-article {
-    padding: 8vmin 0;
+    padding-bottom: 30px;
 }
 
 .gh-container {
@@ -72,9 +72,9 @@ html {
 /* ---------------------------------------------------------- */
 
 .gh-index-head {
-    margin: 0 auto;
     padding: 8vmin 0 4vmin;
     text-align: center;
+    margin-bottom: 10rem;
 }
 
 .gh-card-link {
@@ -117,6 +117,9 @@ html {
 @media (max-width: 700px) {
     .gh-page-head > p {
         font-size: 1.6rem;
+    }
+    .card-text {
+        max-height: 100px;
     }
 }
 
